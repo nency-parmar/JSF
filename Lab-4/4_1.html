@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Change Color</title>
+    </head>
+
+    <body>
+
+        <p id="para">This is a paragraph.</p>
+
+        <button onclick="changeColor()">Change Color</button>
+
+        <script>
+            let textColors = ["red", "blue", "green", "purple"];
+            let bgColors = ["yellow", "lightblue", "lightgreen", "pink"];
+            let index = 0;
+
+            function changeColor() {
+                let p = document.getElementById("para");
+
+                p.style.color = textColors[index];
+                p.style.backgroundColor = bgColors[index];
+
+                index = (index + 1) % textColors.length;
+            }
+        </script>
+
+    </body>
+
+</html>

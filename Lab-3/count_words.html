@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Word Count</title>
+    </head>
+
+    <body>
+
+        <h2>Word Count</h2>
+
+        <script>
+            let sentence = prompt("Enter a sentence:");
+
+            let words = sentence.trim().split(" ").filter(word => word !== "");
+
+            document.write("Sentence: " + sentence + "<br>");
+            document.write("Number of words: " + words.length);
+        </script>
+
+    </body>
+
+</html>

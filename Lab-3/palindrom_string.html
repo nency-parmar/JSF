@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Palindrome Checker</title>
+    </head>
+
+    <body>
+
+        <h2>Palindrome Checker</h2>
+
+        <script>
+            let str = prompt("Enter a string:");
+
+            // let clean = str.toLowerCase().replace(/ /g, "");
+            let reverse = str.split("").reverse().join("");
+            document.write(reverse);
+
+            if (clean === reverse) {
+                document.write(str + " is a Palindrome.");
+            } else {
+                document.write(str + " is NOT a Palindrome.");
+            }
+        </script>
+
+    </body>
+
+</html>

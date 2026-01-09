@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+  <body>
+
+    <input id="s" placeholder="search">
+    <table border="1">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Name</th>
+          <th>Phone</th>
+        </tr>
+      </thead>
+      <tbody id="t"></tbody>
+    </table>
+
+    <script>
+      const s = document.getElementById("s");
+      const t = document.getElementById("t");
+
+      async function load() {
+        let d = await (await fetch("https://67ca7589102d684575c5679c.mockapi.io/practice")).json();
+        t.innerHTML = d.map(u => `<tr data-x="${(u.name + u.phone).toLowerCase()}">
+    <td>${u.id}</td><td>${u.name}</td><td>${u.phone}</td></tr>`).join('');
+      }
+
+      s.addEventListener("input", () => {
+        let v = s.value.toLowerCase();
+        [...t.rows].forEach(r => r.style.display = r.dataset.x.includes(v) ? "" : "none");
+      });
+
+      load();
+    </script>
+
+  </body>
+
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Weather</title>
+    </head>
+
+    <body>
+        <h2>Weather Checker</h2>
+        <input id="city" placeholder="Enter city">
+        <button onclick="checkWeather()">Check</button>
+        <p id="out"></p>
+        <script>
+            async function checkWeather() {
+                const name = document.getElementById("city").value.trim();
+                if (!name) return;
+                const geo = `https://geocoding-api.open-meteo.com/v1/search?name=${name}`;
+                const g = await fetch(geo).then(r => r.json());
+                if (!g.results) {
+                    document.getElementById("out").innerText = "City not found";
+                    return;
+                }
+                const { latitude, longitude } = g.results[0];
+                const url = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}
+                &longitude=${longitude}&current_weather=true`;
+                const w = await fetch(url).then(r => r.json());
+                document.getElementById("out").innerText =
+                    "Temperature: " + w.current_weather.temperature + " °C";
+            }
+        </script>
+
+    </body>
+
+</html>

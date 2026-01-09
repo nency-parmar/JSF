@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <title>Character Counter</title>
+    </head>
+
+    <body>
+        <h2>Character Counter</h2>
+
+        <textarea id="box" maxlength="200" placeholder="Start typing..." oninput="show()"></textarea>
+        <div id="p"></div>
+
+        <script>
+            function show() {
+                let max = 200;
+                let a = document.getElementById('box').value.length;
+                let rem = max - a;
+                p.innerHTML = "Remaining Characters : " + rem;
+            }
+
+        </script>
+    </body>
+
+</html>
